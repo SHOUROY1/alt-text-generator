@@ -147,11 +147,9 @@ def main():
     )
     
     # API Key input
-    if "OpenAI" in model_provider:
-        api_key = st.sidebar.text_input(
-            "OpenAI API Key",
-            type="password",
-            help="Enter your OpenAI API key"
+ if "OpenAI" in model_provider:
+        # Pulls the key directly from the Secrets file you saved earlier
+        api_key = st.secrets["OPENAI_API_KEY"]
         )
     else:
         api_key = st.sidebar.text_input(
